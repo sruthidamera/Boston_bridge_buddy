@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Navigation{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h5 class="card-title text-center">Navigation</h5>
+            <hr>
+
+            <form class="user" method="post">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <select class="form-control" id="line_route" name="line_route">
+                        <option value="Middleborough/Lakeville">Middleborough/Lakeville</option>
+                        <option value="Lowell">Lowell</option>
+                        <option value="Haverhill">Haverhill</option>
+                        <option value="Kingston">Kingston</option>
+                        <option value="Needham">Needham</option>
+                        <option value="Fitchburg">Fitchburg</option>
+                        <option value="Greenbush">Greenbush</option>
+                        <option value="Fairmount">Fairmount</option>
+                        <option value="Providence/Stoughton">Providence/Stoughton</option>
+                        <option value="Newburyport/Rockport">Newburyport/Rockport</option>
+                        <option value="Framingham/Worcester">Framingham/Worcester</option>
+                        <option value="Franklin/Foxboro">Franklin/Foxboro</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Select a Date:</label>
+                    <input type="date" id="date" name="date" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Select a Time:</label>
+                    <input type="time" id="time" name="time" class="form-control" required>
+                </div>
+
+                <button class="btn btn-primary btn-user btn-block" type="submit">Predit</button>
+            </form>
+
+            {% if crowd_index %}
+            <div class="mt-4">
+                <p>On {{date_str}} at {{time_str}} Population Index for {{selectedoption}} will be {{ crowd_index }}</p>
+                
+            </div>
+            {% endif %}
+            <hr>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

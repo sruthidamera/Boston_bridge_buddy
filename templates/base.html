@@ -1,0 +1,282 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Buddy{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="/static/images/favicon.png">
+    <link rel="icon" href="/static/images/favicon.svg"> 
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+</head>
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            
+                
+                <div class="sidebar-brand-text mx-3 my-3">
+                    <a href="/home" class="text-light">
+                        Home
+                    </a>
+                </div>
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <!-- Nav Item - Dashboard -->
+
+            {% comment %} {% if user.is_authenticated %} {% endcomment %}
+
+
+
+            <li class="nav-item active">
+                {% block links %}
+
+
+                {% block rental_check-link %}
+                    <a class="nav-item nav-link border-bottom" href="/rental_check/">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm3.97-9.97a.75.75 0 0 0-1.06-1.06L7 9.94 5.09 8.03a.75.75 0 1 0-1.06 1.06l2.5 2.5a.75.75 0 0 0 1.06 0l4.5-4.5z"/>
+                          </svg>
+                          
+                        Rental Safety Check
+                    </a>
+                {% endblock %}
+                
+        
+                {% block navigation-link %}
+                    <a class="nav-item nav-link border-bottom" href="/navigation/">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                    <path d="M0 2.5A2.5 2.5 0 0 1 2.5 0h11A2.5 2.5 0 0 1 16 2.5v11a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 0 13.5v-11zm1 0v11a1.5 1.5 0 0 0 1.5 1.5h11a1.5 1.5 0 0 0 1.5-1.5v-11a1.5 1.5 0 0 0-1.5-1.5H2.5A1.5 1.5 0 0 0 1 2.5zM4.46 10.04l4-2.5a.5.5 0 0 1 .54 0l4 2.5H15a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H1a.5.5 0 0 0-.5.5v6.04a.5.5 0 0 0 .46.5zM1 1a1 1 0 0 1 1-1h13a1 1 0 0 1 1 1v.992a6.486 6.486 0 0 1-1.784.244l-5.025-3.139a1.5 1.5 0 0 0-1.382 0l-5.025 3.14A6.486 6.486 0 0 1 1 .992V1z"/>
+                    </svg>
+                    Navigation
+                    </a>
+                {% endblock %}
+
+                {% block nearby_events-link %}
+                    <a class="nav-item nav-link border-bottom" href="/nearby_events/">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-smile" viewBox="0 0 16 16">
+                            <path d="M8 1.5a6.5 6.5 0 0 1 5.188 10.606.5.5 0 0 1-.633.133A4.49 4.49 0 0 0 8 10a4.49 4.49 0 0 0-4.555 2.239.5.5 0 0 1-.832-.554A6.495 6.495 0 0 1 8 1.5zm-1.5 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0zM4.5 7a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0zm7 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0z"/>
+                          </svg>
+                        Fun activites nearby
+                    </a>
+                {% endblock %}
+
+                {% block rent_predict-link %}
+                    <a class="nav-item nav-link border-bottom" href="/rent_predict/">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                        </svg>
+                        Predict Rent
+
+                    </a>
+                {% endblock %}
+               {% block commuter_crowd-link %}
+                    <a class="nav-item nav-link border-bottom" href="/commuter_crowd/">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M4.463 8.184a.487.487 0 0 0-.494.498c0 .276.22.498.494.498.275 0 .494-.222.494-.498 0-.276-.22-.498-.494-.498zM10.053 8.184a.487.487 0 0 0-.494.498c0 .276.22.498.494.498.274 0 .494-.222.494-.498 0-.276-.22-.498-.494-.498zM8.258 4.927a3.165 3.165 0 0 0-3.171 3.172 3.165 3.165 0 0 0 3.171 3.172 3.165 3.165 0 0 0 3.171-3.172 3.165 3.165 0 0 0-3.171-3.172zm0 5.556a2.39 2.39 0 0 1-2.387-2.384 2.39 2.39 0 0 1 2.387-2.386 2.39 2.39 0 0 1 2.387 2.386 2.39 2.39 0 0 1-2.387 2.384z"/>
+                          </svg>
+                        Predit Commuter crowd
+                    </a>
+                {% endblock %}
+
+                {% block lyft_uber-link %}
+                    <a class="nav-item nav-link border-bottom" href="/lyft_uber/">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-smile" viewBox="0 0 16 16">
+                            <path d="M8 1.5a6.5 6.5 0 0 1 5.188 10.606.5.5 0 0 1-.633.133A4.49 4.49 0 0 0 8 10a4.49 4.49 0 0 0-4.555 2.239.5.5 0 0 1-.832-.554A6.495 6.495 0 0 1 8 1.5zm-1.5 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0zM4.5 7a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0zm7 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0z"/>
+                          </svg>
+                        Lyft vs Uber
+                    </a>
+                {% endblock %}
+
+                {% block student_discount-link %}
+                    <a class="nav-item nav-link border-bottom" href="/student_discount/">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-smile" viewBox="0 0 16 16">
+                            <path d="M8 1.5a6.5 6.5 0 0 1 5.188 10.606.5.5 0 0 1-.633.133A4.49 4.49 0 0 0 8 10a4.49 4.49 0 0 0-4.555 2.239.5.5 0 0 1-.832-.554A6.495 6.495 0 0 1 8 1.5zm-1.5 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0zM4.5 7a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0zm7 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0z"/>
+                          </svg>
+                        Student Discounts
+                    </a>
+                {% endblock %}
+                
+
+
+                {% if user.is_superuser %}
+                    {% block admin-link %}
+                    <a class="nav-item nav-link border-bottom" href="/admin/">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wrench" viewBox="0 0 16 16">
+                    <path d="M.102 2.223A3.004 3.004 0 0 0 3.78 5.897l6.341 6.252A3.003 3.003 0 0 0 13 16a3 3 0 1 0-.851-5.878L5.897 3.781A3.004 3.004 0 0 0 2.223.1l2.141 2.142L4 4l-1.757.364L.102 2.223zm13.37 9.019.528.026.287.445.445.287.026.529L15 13l-.242.471-.026.529-.445.287-.287.445-.529.026L13 15l-.471-.242-.529-.026-.287-.445-.445-.287-.026-.529L11 13l.242-.471.026-.529.445-.287.287-.445.529-.026L13 11l.471.242z"/>
+                    </svg>
+                        Admin Panel
+                    </a>
+                    {% endblock %}
+
+                    {% block add_rc-link %}
+                    <a class="nav-item nav-link border-bottom" href="/add_rc/">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wrench" viewBox="0 0 16 16">
+                    <path d="M.102 2.223A3.004 3.004 0 0 0 3.78 5.897l6.341 6.252A3.003 3.003 0 0 0 13 16a3 3 0 1 0-.851-5.878L5.897 3.781A3.004 3.004 0 0 0 2.223.1l2.141 2.142L4 4l-1.757.364L.102 2.223zm13.37 9.019.528.026.287.445.445.287.026.529L15 13l-.242.471-.026.529-.445.287-.287.445-.529.026L13 15l-.471-.242-.529-.026-.287-.445-.445-.287-.026-.529L11 13l.242-.471.026-.529.445-.287.287-.445.529-.026L13 11l.471.242z"/>
+                    </svg>
+                        Add Rent Crime CSV
+                    </a>
+                    {% endblock %}
+                {% endif %}
+
+                {% endblock %}
+            </li>
+            
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Topbar -->
+                <nav class="navbar navbar-content navbar-light bg-white topbar mb-4 static-top shadow">
+            {% if user.is_authenticated %}
+                <a class="nav-link">Hi {{user.first_name}} {{user.last_name}}
+
+                <a class=" nav-link text-muted"> Buddy </a>
+
+                <a class=" nav-item nav-link" href="{% url 'logout' %}">
+                    Logout
+                </a>
+            {%else%}
+                <a class=" nav-link text-muted"> Buddy </a>
+            {% endif %}
+            
+
+            {% block link %}
+            {% if not user.is_authenticated %}
+            {% block login-link %}
+            <div class="login-register-class">
+                <a class="" href="/login/">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                   </svg>
+                    Login
+                </a>
+            /
+               <a class=" " href="/register/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
+                <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+            </svg>
+                    Register
+                </a>
+            </div>
+            {% endblock %}
+
+
+            {%endif%}
+            
+            {% endblock %}
+                </nav>
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <div class="messages">
+                        {% for message in messages %}
+                          <p id="message_{{ forloop.counter }}" style="margin: 10px 0; padding: 5px; border-radius: 4px; font-size: 14px;
+                                                    {% if message.tags == 'success' %} color: green; background-color: #e9f7ef; border: 1px solid #1c7430; {% endif %}
+                                                    {% if message.tags == 'error' %} color: red; background-color: #f8e8e8; border: 1px solid #d32f2f; {% endif %}">
+                            {{ message }}
+                          </p>
+                        {% endfor %}
+                    </div>
+                    {% block content %}
+                    <!-- Dynamic Content goes here -->
+                    {% endblock %}
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                {% comment %} <div class="messages">
+                    {% for message in messages %}
+                      <p style="margin: 10px 0; padding: 5px; border-radius: 4px; font-size: 14px;
+                                {% if message.tags == 'success' %} color: green; background-color: #e9f7ef; border: 1px solid #1c7430; {% endif %}
+                                {% if message.tags == 'error' %} color: red; background-color: #f8e8e8; border: 1px solid #d32f2f; {% endif %}">
+                        {{ message }}
+                      </p>
+                    {% endfor %}
+                </div> {% endcomment %}
+                <div class="container my-auto">
+                    <div class="text-center my-auto">
+                        <P style="width:100%; float:left;">Need help with anything? Please reach us at <a href = "mailto: kishan.nehith@gmail.com">kishan.nehith@gmail.com</a></P>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Core plugin JavaScript -->
+    <script src="{% static 'js/jquery.easing.min.js' %}"></script>
+
+    <!-- Custom scripts for all pages -->
+    <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
+</body>
+<script>
+    // Hide messages after 5 seconds
+    window.onload = function() {
+        {% for message in messages %}
+            setTimeout(function() {
+                var msg = document.getElementById('message_{{ forloop.counter }}');
+                if (msg) {
+                    msg.style.display = 'none';
+                }
+            }, 3000);
+        {% endfor %}
+    };
+</script>
+</html>

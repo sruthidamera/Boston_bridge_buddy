@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Rental Safety Check{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h5 class="card-title text-center">Rental Safety Check</h5>
+            <hr>
+
+            <form class="user" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" id="address" name="address" placeholder="address">
+                </div>
+                <button class="btn btn-primary btn-user btn-block" type="submit">Check</button>
+            </form>
+
+            {% if violations %}
+            <div class="mt-4">
+                <h6>Violations:</h6>
+                <ul>
+                    {% for violation in violations %}
+                    <li>{{ violation.violation_type }} - {{ violation.description }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% else %}
+            <div class="mt-4">No violations found.</div>
+            {% endif %}
+
+            <hr>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

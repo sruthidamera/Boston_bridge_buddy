@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block title %}Register{% endblock %}
+{% block content %}
+
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="card-body">
+            <h5 class="card-title text-center">Register</h5>
+
+            
+            <hr>
+
+            <form method="POST" class="form-group nt-weight-bold p-2 border-bottom">
+                {% csrf_token %}
+                <div class="form-group mb-9">
+                    <label for="username">Username<span class="asteriskField">*</span></label>
+                    <input type="text" class="form-control form-control-user" id="username" name="username">
+                </div>
+                <div class="form-group mb-9">
+                    <label for="firstname">First Name<span class="asteriskField">*</span></label>
+                    <input type="text" class="form-control form-control-user" id="firstname" name="firstname">
+                </div>
+                <div class="form-group mb-9">
+                    <label for="lastname">Last Name<span class="asteriskField">*</span></label>
+                    <input type="text" class="form-control form-control-user" id="lastname" name="lastname">
+                </div>
+                <div class="form-group mb-9">
+                    <label for="email">Email Address<span class="asteriskField">*</span></label>
+                    <input type="email" class="form-control form-control-user" id="email" name="email">
+                </div>
+                <div class="form-group mb-9">
+                    <label for="pasw1">Password<span class="asteriskField">*</span></label>
+                    <input type="password" class="form-control form-control-user" id="pasw1" name="pasw1">
+                    
+                </div>
+                <div class="form-group mb-9">
+                    <label for="pasw2">Repeat Password<span class="asteriskField">*</span></label>
+                    <input type="password" class="form-control form-control-user" id="pasw2" name="pasw2">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary w-100">Register</button>
+                </div>
+            </form>
+
+
+
+
+
+            <br>
+
+
+            {% comment %} <div class="messages">
+                {% for message in messages %}
+                  <p style="margin: 10px 0; padding: 5px; border-radius: 4px; font-size: 14px;
+                            {% if message.tags == 'success' %} color: green; background-color: #e9f7ef; border: 1px solid #1c7430; {% endif %}
+                            {% if message.tags == 'error' %} color: red; background-color: #f8e8e8; border: 1px solid #d32f2f; {% endif %}">
+                    {{ message }}
+                  </p>
+                {% endfor %}
+            </div> {% endcomment %}
+            
+            
+            
+        </div>
+    </div>
+</div>
+
+<script>
+    // Display the message for 5 seconds and then hide it
+    setTimeout(function() {
+        var message = document.getElementById('message');
+        if (message) {
+            message.style.display = 'none';
+        }
+    }, 5000);
+</script>
+<style>
+    .error-message {
+        color: red;
+        background-color: #ffe6e6;
+        padding: 10px;
+        border: 1px solid #ff9999;
+        border-radius: 4px;
+    }
+</style>
+
+{% endblock %}

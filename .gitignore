@@ -1,0 +1,15 @@
+venv/
+myenv/
+bbhenv/
+__pycache__/
+.pyc
+
+.idea/
+*.code-workspace
+.vscode/
+
+
+.DS_Store
+Thumbs.db
+
+ml_models/ride_price.joblib

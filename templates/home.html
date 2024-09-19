@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h5 class="text-center">Events</h5>
+            <hr>
+            {% if events %}
+                {% for event in events %}
+                <div class="card mb-3" style="cursor: pointer;">
+                    <div class="card-header" onclick="toggleAdditionalInfo('info{{ forloop.counter }}')">
+                        {{ event.name }} - {{ event.date }} at {{ event.time }}
+                    </div>
+                    <div class="card-body" id="info{{ forloop.counter }}" style="display: none;">
+                        <h5 class="card-title">{{ event.location }}</h5>
+                        <p class="card-text">{{ event.additional_info }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="text-center">No events right now.</div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleAdditionalInfo(id) {
+    var info = document.getElementById(id);
+    if (info.style.display === "none") {
+        info.style.display = "block";
+    } else {
+        info.style.display = "none";
+    }
+}
+</script>
+
+<style>
+    .error-message {
+        color: red;
+        background-color: #ffe6e6;
+        padding: 10px;
+        border: 1px solid #ff9999;
+        border-radius: 4px;
+    }
+</style>
+
+{% endblock %}

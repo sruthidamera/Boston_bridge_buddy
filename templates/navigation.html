@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Navigation{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h5 class="card-title text-center">Navigation</h5>
+            <hr>
+
+            <form class="user" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" id="source" name="source" placeholder="Enter Source">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="destination" name="destination" placeholder="Enter Destination">
+                </div>
+                <div class="form-group">
+                    <select class="form-control" id="mode" name="mode">
+                        <option value="transit">Transit</option>
+                        <option value="driving">Driving</option>
+                        <option value="walking">Walking</option>
+                        <option value="bicycling">Bicycling</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary btn-user btn-block" type="submit">Submit</button>
+            </form>
+
+            {% if route %}
+            <div class="mt-4">
+                <p>Distance: {{ distance }}</p>
+                <p>Duration: {{ duration }}</p>
+                <hr>
+                <h6>Steps:</h6>
+                <ol>
+                    {% for step in steps %}
+                    <li>
+                        <p>{{ step.html_instructions|safe }} ({{ step.distance.text }}, {{ step.duration.text }})</p>
+                    </li>
+                    {% endfor %}
+                </ol>
+            </div>
+            {% endif %}
+            <hr>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

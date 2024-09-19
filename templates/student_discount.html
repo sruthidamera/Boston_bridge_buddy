@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Student Discounts{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h5 class="card-title text-center">Student Discounts</h5>
+            <hr>
+
+            <form class="user" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title">
+                </div>
+                <button class="btn btn-primary btn-user btn-block" type="submit">Search</button>
+            </form>
+
+            {% if discounts %}
+            <div class="mt-4">
+                <h6>Discounts :</h6>
+                <ul>
+                    {% for discount in discounts %}
+                    <li>{{ discount.title }} - {{ discount.description }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% else %}
+            <div class="mt-4">No discounts found.</div>
+            {% endif %}
+
+            <hr>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

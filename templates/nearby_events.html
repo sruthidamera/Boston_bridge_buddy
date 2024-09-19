@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Fun activities{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h5 class="card-title text-center">Fun activities</h5>
+            <hr>
+
+            <form class="user" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" id="activity" name="activity" placeholder="Enter Activity">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="address" name="address" placeholder="Enter Current Address">
+                </div>
+                <button class="btn btn-primary btn-user btn-block" type="submit">Find</button>
+            </form>
+
+            {% if places %}
+                <div class="mt-4">
+                    <h6>Fun Activities near {{address}}:</h6>
+                    <ul>
+                        {% for place in places %}
+                            <li>{{ place.name }} - {{ place.vicinity }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            <hr>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

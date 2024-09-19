@@ -1,0 +1,8 @@
+.navbar-content{
+    display:flex;
+    justify-content: space-between;
+}
+
+.login-register-class{
+    display:flex;
+}
